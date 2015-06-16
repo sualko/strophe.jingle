@@ -68,10 +68,10 @@ JingleSession.prototype.initiate = function (peerjid, isInitiator) {
     this.peerjid = peerjid;
     //console.log('create PeerConnection ' + JSON.stringify(this.ice_config));
     try {
-        this.peerconnection = new RTCPeerconnection(this.ice_config,
+        this.peerconnection = new TraceablePeerConnection(this.ice_config,
                                                      this.pc_constraints);
     } catch (e) {
-        console.error('Failed to create PeerConnection, exception: ',
+        console.error('Failed to create TraceablePeerConnection, exception: ',
                       e.message);
         console.error(e);
         return;
